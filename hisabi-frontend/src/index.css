@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+:root {
+  --primary: #00F0FF;
+  --secondary: #BDFF00;
+  --tertiary: #BF5AF2;
+  --neutral: #0F1115;
+  --surface: #161B22;
+  --surface-2: #1E252F;
+  --surface-3: #252D38;
+  --border: rgba(255,255,255,0.07);
+  --text-primary: #E8EDF3;
+  --text-muted: #5A6478;
+  --text-dim: #8892A4;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--neutral);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: 'Manrope', sans-serif; }
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--surface-3); border-radius: 4px; }
+
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; }
+.card-inner { background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.animate-fade-up { animation: fadeUp 0.4s ease forwards; }
+.animate-fade-in { animation: fadeIn 0.3s ease forwards; }
+.stagger-1 { animation-delay: 0.05s; opacity: 0; }
+.stagger-2 { animation-delay: 0.1s; opacity: 0; }
+.stagger-3 { animation-delay: 0.15s; opacity: 0; }
+.stagger-4 { animation-delay: 0.2s; opacity: 0; }
+.stagger-5 { animation-delay: 0.25s; opacity: 0; }
+
+.btn-primary {
+  background: var(--primary); color: #0a1015; font-family: 'Manrope', sans-serif;
+  font-weight: 700; border-radius: 10px; padding: 10px 20px; border: none;
+  cursor: pointer; transition: all 0.2s ease; font-size: 13px;
+}
+.btn-primary:hover { background: #33f4ff; box-shadow: 0 0 20px rgba(0,240,255,0.4); transform: translateY(-1px); }
+
+.btn-secondary {
+  background: transparent; color: var(--primary); font-family: 'Manrope', sans-serif;
+  font-weight: 600; border-radius: 10px; padding: 9px 18px;
+  border: 1px solid rgba(0,240,255,0.3); cursor: pointer; transition: all 0.2s ease; font-size: 13px;
+}
+.btn-secondary:hover { background: rgba(0,240,255,0.08); border-color: var(--primary); }
+
+.btn-danger {
+  background: rgba(255,80,80,0.12); color: #ff6b6b; border: 1px solid rgba(255,80,80,0.2);
+  border-radius: 8px; padding: 7px 14px; cursor: pointer; transition: all 0.2s ease; font-size: 12px;
+}
+.btn-danger:hover { background: rgba(255,80,80,0.2); }
+
+.input-field {
+  background: var(--surface-3); border: 1px solid var(--border);
+  border-radius: 10px; padding: 10px 14px; color: var(--text-primary);
+  font-size: 14px; width: 100%; outline: none; transition: border-color 0.2s ease;
+}
+.input-field:focus { border-color: rgba(0,240,255,0.4); box-shadow: 0 0 0 3px rgba(0,240,255,0.06); }
+.input-field::placeholder { color: var(--text-muted); }
+
+.nav-item {
+  display: flex; align-items: center; gap: 10px; padding: 10px 14px;
+  border-radius: 10px; color: var(--text-dim); cursor: pointer;
+  transition: all 0.2s ease; font-size: 13.5px; font-weight: 500; text-decoration: none;
+}
+.nav-item:hover { background: var(--surface-2); color: var(--text-primary); }
+.nav-item.active { background: rgba(0,240,255,0.1); color: var(--primary); border: 1px solid rgba(0,240,255,0.15); }
+
+.badge-positive { color: #BDFF00; font-size: 12px; font-weight: 600; }
+.badge-negative { color: #ff6b6b; font-size: 12px; font-weight: 600; }
+
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);
+  z-index: 50; display: flex; align-items: center; justify-content: center; animation: fadeIn 0.2s ease;
+}
+.modal-box {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
+  padding: 28px; width: 100%; max-width: 480px; animation: fadeUp 0.25s ease;
+}
+select option { background: #1E252F; }
